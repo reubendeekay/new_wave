@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 import { 
   Target, 
   Eye, 
@@ -50,19 +51,53 @@ export default function AboutPage() {
     <>
       <section className="relative py-20 bg-gradient-to-b from-green-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl mb-6">
-              About NEWWAVE
-            </h1>
-            <p className="text-xl text-gray-600">
-              Your trusted partner in creating cleaner, healthier spaces across Nairobi
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl mb-6">
+                About NEWWAVE
+              </h1>
+              <p className="text-xl text-gray-600 mb-8">
+                Your trusted partner in creating cleaner, healthier spaces across Nairobi
+              </p>
+              <div className="flex items-center space-x-8 text-sm text-gray-500">
+                <div className="flex items-center">
+                  <Calendar className="h-5 w-5 mr-2 text-green-600" />
+                  <span>Founded in 2014</span>
+                </div>
+                <div className="flex items-center">
+                  <Users className="h-5 w-5 mr-2 text-green-600" />
+                  <span>5000+ Customers</span>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Professional cleaning team in action"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <p className="text-sm font-medium bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+                    Professional Excellence Since 2014
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
